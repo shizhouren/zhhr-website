@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>联系我们 - 中华人力资源学会 (ZHHR.NET)</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left"><span>🏛 中华人力资源学会 秘书处联络中心</span></div>
+      <div class="top-bar-right"><a href="/join/">在线入会通道</a></div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo-box">
+        <div class="logo-emblem">華</div>
+        <div class="logo-text">
+          <h1>中华人力资源学会</h1>
+          <p>Chinese Human Resources Association (ZHHR)</p>
+        </div>
+      </a>
+      <nav class="nav-menu" id="navMenu">
+        <div class="nav-item"><a href="/" class="nav-link">首页</a></div>
+        <div class="nav-item"><a href="/about.html" class="nav-link">学会概况</a></div>
+        <div class="nav-item"><a href="/news.html" class="nav-link">学术动态</a></div>
+        <div class="nav-item"><a href="/research.html" class="nav-link">智库研究</a></div>
+        <div class="nav-item"><a href="/training.html" class="nav-link">培训认证</a></div>
+        <div class="nav-item"><a href="/contact.html" class="nav-link active">联系我们</a></div>
+        <div class="nav-item"><a href="/join/" class="nav-link nav-btn-join">在线入会缴费</a></div>
+      </nav>
+      <button class="mobile-toggle" id="mobileToggle">☰</button>
+    </div>
+  </header>
+
+  <section class="hero-banner" style="padding: 60px 0;">
+    <div class="container hero-content">
+      <h2 class="hero-title">联系学会秘书处</h2>
+      <p class="hero-desc">我们竭诚为全国会员单位、专家学者及企事业单位提供全方位学术交流与入会咨询服务。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+        
+        <!-- 联系方式卡片 -->
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 36px; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+          <h3 style="font-size: 22px; color: #0f2b5c; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px;">秘书处联络信息</h3>
+          
+          <div style="display: flex; flex-direction: column; gap: 18px; font-size: 15px; color: #334155;">
+            <div>
+              <strong style="color: #0f2b5c;">📍 办公地址：</strong><br>
+              北京市海淀区中关村南大街1号科技大厦A座18层
+            </div>
+            <div>
+              <strong style="color: #0f2b5c;">📞 会员服务与入会专线：</strong><br>
+              010-8866-9988 / 010-8866-9989 (工作日 9:00 - 18:00)
+            </div>
+            <div>
+              <strong style="color: #0f2b5c;">📧 电子邮箱：</strong><br>
+              秘书处综合事务：secretariat@zhhr.net<br>
+              会员与入会认证：membership@zhhr.net<br>
+              智库课题与学术合作：research@zhhr.net
+            </div>
+            <div>
+              <strong style="color: #0f2b5c;">🌐 官方网站域名：</strong><br>
+              <a href="https://zhhr.net" style="color: #b91c1c; font-weight: 700;">https://zhhr.net</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 在线留言表单 -->
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 36px; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+          <h3 style="font-size: 22px; color: #0f2b5c; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px;">在线咨询与课题合作留言</h3>
+          
+          <form onsubmit="event.preventDefault(); showToast('您的留言已成功提交，秘书处将在24小时内与您联系！'); this.reset();">
+            <div class="form-group">
+              <label class="form-label">您的姓名 / 单位名称 <span class="req">*</span></label>
+              <input type="text" class="form-input" placeholder="请输入姓名或所属企业" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">联系电话 <span class="req">*</span></label>
+                <input type="tel" class="form-input" placeholder="手机号码" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">电子邮箱 <span class="req">*</span></label>
+                <input type="email" class="form-input" placeholder="电子邮箱地址" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">咨询事项 / 合作意向 <span class="req">*</span></label>
+              <textarea class="form-textarea" rows="4" placeholder="请详细描述您的咨询内容（如入会标准、课题联合申报、培训定制等）" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              立即提交留言
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="border: none; padding: 0;">
+      <p>© 2026 中华人力资源学会 (ZHHR.NET) 版权所有 | 京ICP备2026088888号-1</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

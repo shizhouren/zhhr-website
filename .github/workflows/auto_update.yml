@@ -1,0 +1,30 @@
+name: 自动定期更新学会资讯 (ZHHR Auto Update)
+
+on:
+  schedule:
+    # 每周一、周四上午 8:00 (UTC 0:00) 自动运行
+    - cron: '0 0 * * 1,4'
+  workflow_dispatch: # 支持手动一键触发
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码仓库
+        uses: actions/checkout@v4
+
+      - name: 设置 Node.js 环境
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 执行资讯更新引擎
+        run: |
+          node scripts/update_news.js
+
+      - name: 提交并推送到仓库
+        run: |
+          git config --global user.name 'ZHHR Bot'
+          git config --global user.email 'bot@zhhr.net'
+          git add data/news.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(news): 自动定时更新学会动态与行业资讯 [skip ci]" && git push)

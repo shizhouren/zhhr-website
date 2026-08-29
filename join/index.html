@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会员中心与在线入会缴费 - 中华人力资源学会 (ZHHR.NET)</title>
+  <meta name="description" content="中华人力资源学会在线入会通道，提供企业理事单位、常务理事单位与个人会士在线申请及二维码支付通道。">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- 顶部通栏 -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left"><span>🏛 中华人力资源学会 官方会员服务中心 (ZHHR.NET)</span></div>
+      <div class="top-bar-right"><a href="/">返回官网首页</a><a href="/contact.html">入会热线：010-8866-9988</a></div>
+    </div>
+  </div>
+
+  <!-- 主导航 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo-box">
+        <div class="logo-emblem">華</div>
+        <div class="logo-text">
+          <h1>中华人力资源学会</h1>
+          <p>Chinese Human Resources Association (ZHHR)</p>
+        </div>
+      </a>
+      <nav class="nav-menu" id="navMenu">
+        <div class="nav-item"><a href="/" class="nav-link">首页</a></div>
+        <div class="nav-item"><a href="/about.html" class="nav-link">学会概况</a></div>
+        <div class="nav-item"><a href="/news.html" class="nav-link">学术动态</a></div>
+        <div class="nav-item"><a href="/research.html" class="nav-link">智库研究</a></div>
+        <div class="nav-item"><a href="/training.html" class="nav-link">培训认证</a></div>
+        <div class="nav-item"><a href="/contact.html" class="nav-link">联系我们</a></div>
+        <div class="nav-item"><a href="/join/" class="nav-link nav-btn-join active">在线入会缴费</a></div>
+      </nav>
+      <button class="mobile-toggle" id="mobileToggle">☰</button>
+    </div>
+  </header>
+
+  <section class="hero-banner" style="padding: 60px 0;">
+    <div class="container hero-content">
+      <h2 class="hero-title">会员中心 · 在线入会与缴费</h2>
+      <p class="hero-desc">加入国家级学术平台，畅享顶尖智库资源、权威学术背书、全球高管圈层与定制化企业人才赋能。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Membership Tiers</div>
+        <h2 class="section-title">选择适合您的会员类别</h2>
+        <p class="section-desc">支持企业会员与个人专业会员，线上提交申请并扫码缴纳会费即可快速办结。</p>
+      </div>
+
+      <!-- 类别切换 -->
+      <div class="membership-toggle">
+        <div class="toggle-wrapper">
+          <button class="toggle-btn active" data-target="enterprise">🏢 企业会员 / 理事单位</button>
+          <button class="toggle-btn" data-target="individual">👤 个人会员 / 资深会士</button>
+        </div>
+      </div>
+
+      <!-- 会员价格卡片 -->
+      <div class="pricing-grid" id="pricingCardsContainer">
+        <!-- 动态渲染 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 会员权益对比表 -->
+  <section class="section section-bg">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Benefits Matrix</div>
+        <h2 class="section-title">企业会员核心权益全景对比</h2>
+      </div>
+
+      <div style="background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; overflow-x: auto; box-shadow: 0 4px 16px rgba(0,0,0,0.05);">
+        <table style="width: 100%; border-collapse: collapse; font-size: 14px; text-align: center;">
+          <thead>
+            <tr style="background: #0f2b5c; color: #ffffff;">
+              <th style="padding: 16px 20px; text-align: left;">赋能服务项目</th>
+              <th style="padding: 16px;">副理事长单位<br><span style="font-size: 12px; opacity: 0.8;">(¥50,000/年)</span></th>
+              <th style="padding: 16px;">常务理事单位<br><span style="font-size: 12px; opacity: 0.8;">(¥20,000/年)</span></th>
+              <th style="padding: 16px;">理事单位<br><span style="font-size: 12px; opacity: 0.8;">(¥10,000/年)</span></th>
+              <th style="padding: 16px;">普通企业会员<br><span style="font-size: 12px; opacity: 0.8;">(¥3,000/年)</span></th>
+            </tr>
+          </thead>
+          <tbody style="color: #334155;">
+            <tr style="border-bottom: 1px solid #f1f5f9;">
+              <td style="padding: 14px 20px; text-align: left; font-weight: 600;">官方授牌与荣誉证书</td>
+              <td>✔ 烫金副理事长牌匾</td>
+              <td>✔ 铜牌常务理事牌</td>
+              <td>✔ 官方理事铜牌</td>
+              <td>✔ 会员纸质证书</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
+              <td style="padding: 14px 20px; text-align: left; font-weight: 600;">理事会投票表决席位</td>
+              <td>✔ 3席 (高管委任)</td>
+              <td>✔ 2席</td>
+              <td>✔ 1席</td>
+              <td>-</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #f1f5f9;">
+              <td style="padding: 14px 20px; text-align: left; font-weight: 600;">全球人力资本峰会VIP门票</td>
+              <td>✔ 5张 (含主桌晚宴)</td>
+              <td>✔ 3张</td>
+              <td>✔ 2张</td>
+              <td>✔ 1张 (享8折)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
+              <td style="padding: 14px 20px; text-align: left; font-weight: 600;">年度《白皮书》定制企业版</td>
+              <td>✔ 独家定制与LOGO署名</td>
+              <td>✔ 免费赠送全套</td>
+              <td>✔ 免费赠送全套</td>
+              <td>✔ 电子版查阅</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #f1f5f9;">
+              <td style="padding: 14px 20px; text-align: left; font-weight: 600;">官网Logo展示与专访报道</td>
+              <td>✔ 首页核心推荐+专访</td>
+              <td>✔ 首页LOGO推介</td>
+              <td>✔ 名录栏目展示</td>
+              <td>✔ 会员检索名录</td>
+            </tr>
+            <tr>
+              <td style="padding: 14px 20px; text-align: left; font-weight: 600;">CHO战略研修班免费名额</td>
+              <td>✔ 每年2名 (价值¥7.6万)</td>
+              <td>✔ 享5折特惠</td>
+              <td>✔ 享7折特惠</td>
+              <td>✔ 享8.5折特惠</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 在线申请与缴费模态框 (Modal) -->
+  <div class="modal-backdrop" id="applyModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title" id="modalTierTitle">申请加入中华人力资源学会</div>
+        <button class="modal-close" onclick="closeApplyModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="membershipApplyForm">
+          
+          <div id="enterpriseFields">
+            <div class="form-group">
+              <label class="form-label">企业/机构全称 <span class="req">*</span></label>
+              <input type="text" name="companyName" class="form-input" placeholder="请输入营业执照上的完整单位名称">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">统一社会信用代码 <span class="req">*</span></label>
+                <input type="text" name="creditCode" class="form-input" placeholder="18位统一社会信用代码">
+              </div>
+              <div class="form-group">
+                <label class="form-label">法定代表人/负责人</label>
+                <input type="text" name="legalPerson" class="form-input" placeholder="法定代表人姓名">
+              </div>
+            </div>
+          </div>
+
+          <div id="individualFields" style="display: none;">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">申请人真实姓名 <span class="req">*</span></label>
+                <input type="text" name="applicantName" class="form-input" placeholder="真实姓名">
+              </div>
+              <div class="form-group">
+                <label class="form-label">现任职单位与职务</label>
+                <input type="text" name="jobTitle" class="form-input" placeholder="例如：某上市公司 HRD">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">联系手机号码 <span class="req">*</span></label>
+              <input type="tel" name="phone" class="form-input" placeholder="接收审核通知与电子证书" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">电子邮箱 <span class="req">*</span></label>
+              <input type="email" name="email" class="form-input" placeholder="接收会费电子发票与会务资料" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">期望加入的专业委员会（可多选）</label>
+            <input type="text" name="remarks" class="form-input" placeholder="例如：战略人力资源专委会、数字化与AI专委会">
+          </div>
+
+          <!-- 在线收款与二维码区域 -->
+          <div class="payment-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-weight: 700; color: #0f2b5c;">会费应缴金额：</span>
+              <span class="pay-amount-display" id="appliedFeeAmount">¥0</span>
+            </div>
+
+            <div class="payment-tabs">
+              <div class="pay-tab active" data-pay="wechat">🟢 微信支付扫码</div>
+              <div class="pay-tab" data-pay="alipay">🔵 支付宝扫码</div>
+              <div class="pay-tab" data-pay="bank">🏛 对公银行电汇</div>
+            </div>
+
+            <div class="qr-container" id="qrCodeContainer">
+              <!-- 动态二维码 -->
+            </div>
+
+            <div class="bank-info-box" id="bankInfoContainer" style="display: none;">
+              <div><strong>户名：</strong> 中华人力资源学会（筹）秘书处</div>
+              <div><strong>开户行：</strong> 中国工商银行北京分行金融街支行</div>
+              <div><strong>账号：</strong> 0200 0036 0920 8888 666</div>
+              <div><strong>转账附言：</strong> 请备注【单位名称/个人姓名 + 会费】</div>
+            </div>
+
+            <div class="pay-tip" id="payMethodTip" style="text-align: center; margin-top: 10px;">
+              请使用微信扫一扫完成入会缴费
+            </div>
+
+            <div style="margin-top: 16px; border-top: 1px dashed #cbd5e1; padding-top: 14px;">
+              <label class="form-label">上传支付凭证截图 (选填，加速审核通过)</label>
+              <input type="file" id="paymentProofInput" accept="image/*" class="form-input">
+              <div id="paymentProofPreview" style="font-size: 12px; margin-top: 4px;"></div>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 16px;">
+              确认提交入会申请与缴费凭证
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="border: none; padding: 0;">
+      <p>© 2026 中华人力资源学会 (ZHHR.NET) 版权所有 | 会员服务专用热线：010-8866-9988</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/membership.js"></script>
+</body>
+</html>

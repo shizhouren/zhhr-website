@@ -1,0 +1,19 @@
+{
+  "name": "zhhr-official-website",
+  "version": "1.0.0",
+  "description": "中华人力资源学会 (ZHHR) 官方网站",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "update-news": "node scripts/update_news.js",
+    "build": "node scripts/update_news.js"
+  },
+  "keywords": ["人力资源", "中华人力资源学会", "zhhr", "官网"],
+  "author": "中华人力资源学会秘书处",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  }
+}
