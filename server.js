@@ -42,6 +42,19 @@ const server = http.createServer((req, res) => {
     req.on('end', () => {
       try {
         const application = JSON.parse(body);
+
+        // 蜜罐字段被填写说明是机器人，静默受理丢弃
+        if (application.website) {
+          res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+          res.end(JSON.stringify({ success: true, applicationId: 'ZHHR-' + Date.now().toString(36).toUpperCase() }));
+          return;
+        }
+        if (!application.phone || !application.email || !application.tierName) {
+          res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
+          res.end(JSON.stringify({ success: false, error: '请完整填写联系手机、邮箱与会员类别' }));
+          return;
+        }
+
         application.id = 'ZHHR-' + Date.now().toString(36).toUpperCase() + '-' + Math.floor(Math.random() * 1000).toString().padStart(3, '0');
         application.createdAt = new Date().toISOString();
         application.status = 'PENDING_REVIEW'; // 待审核 / 已提交

@@ -6,6 +6,10 @@ on:
     - cron: '0 0 * * 1,4'
   workflow_dispatch: # 支持手动一键触发
 
+# GITHUB_TOKEN 需要写权限才能推送自动更新的资讯
+permissions:
+  contents: write
+
 jobs:
   update-news:
     runs-on: ubuntu-latest

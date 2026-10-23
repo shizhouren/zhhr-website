@@ -103,45 +103,39 @@ function updatePaymentDisplay() {
     const brandText = isWechat ? '微信支付官方收款码' : '支付宝官方收款码';
     const feeText = currentSelectedTier ? `¥${currentSelectedTier.fee.toLocaleString()}` : '';
 
+    // 优先展示真实收款码图片 (assets/qr-wechat.png / assets/qr-alipay.png)，图片未上传时回退到占位样式
+    const qrImgSrc = isWechat ? '/assets/qr-wechat.png' : '/assets/qr-alipay.png';
+    const fallbackSvg = encodeURIComponent(getPlaceholderQrSvg(color));
+
     qrBox.innerHTML = `
       <div class="qr-code-box">
-        <svg viewBox="0 0 100 100" width="100%" height="100%">
-          <rect width="100" height="100" fill="#ffffff"/>
-          <!-- 二维码定位角 -->
-          <rect x="10" y="10" width="24" height="24" fill="${color}"/>
-          <rect x="14" y="14" width="16" height="16" fill="#ffffff"/>
-          <rect x="18" y="18" width="8" height="8" fill="${color}"/>
-          
-          <rect x="66" y="10" width="24" height="24" fill="${color}"/>
-          <rect x="70" y="14" width="16" height="16" fill="#ffffff"/>
-          <rect x="74" y="18" width="8" height="8" fill="${color}"/>
-          
-          <rect x="10" y="66" width="24" height="24" fill="${color}"/>
-          <rect x="14" y="70" width="16" height="16" fill="#ffffff"/>
-          <rect x="18" y="74" width="8" height="8" fill="${color}"/>
-          
-          <!-- 二维码模拟像素数据 -->
-          <rect x="42" y="12" width="6" height="6" fill="#333"/>
-          <rect x="52" y="18" width="6" height="6" fill="#333"/>
-          <rect x="42" y="28" width="8" height="8" fill="#333"/>
-          <rect x="12" y="42" width="8" height="8" fill="#333"/>
-          <rect x="26" y="46" width="6" height="6" fill="#333"/>
-          <rect x="38" y="40" width="24" height="20" fill="${color}" rx="4"/>
-          <rect x="68" y="44" width="8" height="8" fill="#333"/>
-          <rect x="80" y="52" width="8" height="8" fill="#333"/>
-          <rect x="44" y="66" width="8" height="8" fill="#333"/>
-          <rect x="56" y="72" width="14" height="6" fill="#333"/>
-          <rect x="76" y="68" width="12" height="12" fill="#333"/>
-          
-          <!-- 中心 Logo 标 -->
-          <circle cx="50" cy="50" r="8" fill="#ffffff"/>
-          <text x="50" y="53" font-size="7" font-weight="bold" fill="${color}" text-anchor="middle">ZHHR</text>
-        </svg>
+        <img src="${qrImgSrc}?v=20261023" alt="${brandText}"
+             style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;"
+             onerror="this.outerHTML = decodeURIComponent('${fallbackSvg}')">
       </div>
       <div style="font-size: 13px; font-weight: 700; color: ${color}; margin-bottom: 4px;">${brandText}</div>
       <div style="font-size: 12px; color: #64748b;">中华人力资源学会 官方收款专用</div>
     `;
   }
+}
+
+// 收款码未上传时的占位二维码样式
+function getPlaceholderQrSvg(color) {
+  return `<svg viewBox="0 0 100 100" width="100%" height="100%" style="border-radius:8px;">
+    <rect width="100" height="100" fill="#ffffff"/>
+    <rect x="10" y="10" width="24" height="24" fill="${color}"/>
+    <rect x="14" y="14" width="16" height="16" fill="#ffffff"/>
+    <rect x="18" y="18" width="8" height="8" fill="${color}"/>
+    <rect x="66" y="10" width="24" height="24" fill="${color}"/>
+    <rect x="70" y="14" width="16" height="16" fill="#ffffff"/>
+    <rect x="74" y="18" width="8" height="8" fill="${color}"/>
+    <rect x="10" y="66" width="24" height="24" fill="${color}"/>
+    <rect x="14" y="70" width="16" height="16" fill="#ffffff"/>
+    <rect x="18" y="74" width="8" height="8" fill="${color}"/>
+    <rect x="38" y="38" width="24" height="24" fill="${color}" rx="4"/>
+    <circle cx="50" cy="50" r="8" fill="#ffffff"/>
+    <text x="50" y="53" font-size="7" font-weight="bold" fill="${color}" text-anchor="middle">ZHHR</text>
+  </svg>`;
 }
 
 // 事件绑定
@@ -192,6 +186,7 @@ function bindMembershipEvents() {
 
       const formData = new FormData(form);
       const payload = {
+        website: formData.get('website') || '', // 蜜罐：非空说明是机器人
         tierId: currentSelectedTier ? currentSelectedTier.id : 'unknown',
         tierName: currentSelectedTier ? currentSelectedTier.name : '',
         tierType: currentSelectedTier ? currentSelectedTier.type : '',
@@ -216,7 +211,7 @@ function bindMembershipEvents() {
 
         if (resData.success) {
           closeApplyModal();
-          showSuccessModal(resData.applicationId, payload);
+          showSuccessModal(resData.applicationId, payload, resData.issueUrl);
           form.reset();
         } else {
           showToast('提交失败：' + (resData.error || '未知错误'));
@@ -236,7 +231,7 @@ function bindMembershipEvents() {
 }
 
 // 申请成功回执弹窗
-function showSuccessModal(appId, data) {
+function showSuccessModal(appId, data, issueUrl) {
   let modal = document.getElementById('successModal');
   if (!modal) {
     modal = document.createElement('div');
@@ -259,6 +254,8 @@ function showSuccessModal(appId, data) {
         <div style="margin-bottom: 6px;"><strong>申请单位/个人：</strong> ${data.companyName || data.applicantName}</div>
         <div><strong>审核预计时效：</strong> 1-2个工作日内专人对接并寄送纸质官方证书与会标铜牌</div>
       </div>
+
+      ${issueUrl ? `<p style="font-size:12px;color:#94a3b8;margin-bottom:16px;">申请已同步登记至 <a href="${issueUrl}" target="_blank" rel="noopener" style="color:#2563eb;">学会会员管理系统</a>，可随时查询处理进度</p>` : ''}
 
       <button class="btn btn-primary" onclick="document.getElementById('successModal').classList.remove('show');" style="width: 100%;">
         完成并返回官网

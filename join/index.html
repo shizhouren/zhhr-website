@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>会员中心与在线入会缴费 - 中华人力资源学会 (ZHHR.NET)</title>
   <meta name="description" content="中华人力资源学会在线入会通道，提供企业理事单位、常务理事单位与个人会士在线申请及二维码支付通道。">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -146,7 +147,9 @@
       </div>
       <div class="modal-body">
         <form id="membershipApplyForm">
-          
+          <!-- 蜜罐字段：正常用户不可见，机器人填写则自动丢弃 -->
+          <input type="text" name="website" style="position:absolute;left:-9999px;opacity:0;" tabindex="-1" autocomplete="off">
+
           <div id="enterpriseFields">
             <div class="form-group">
               <label class="form-label">企业/机构全称 <span class="req">*</span></label>

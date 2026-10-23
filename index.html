@@ -6,6 +6,7 @@
   <title>中华人力资源学会 (ZHHR) 官方网站 - 聚全球英才，筑人力资本高地</title>
   <meta name="description" content="中华人力资源学会（ZHHR）是全国性、权威性的人力资源管理学术与产业赋能社团，致力于构建中国特色战略人力资本理论体系与高端人才生态网络。">
   <meta name="keywords" content="中华人力资源学会, zhhr.net, 人力资源, CHO, 人力资本, 数字化HR, 职称认证, 会员申请">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -218,7 +219,9 @@
       </div>
       <div class="modal-body">
         <form id="membershipApplyForm">
-          
+          <!-- 蜜罐字段：正常用户不可见，机器人填写则自动丢弃 -->
+          <input type="text" name="website" style="position:absolute;left:-9999px;opacity:0;" tabindex="-1" autocomplete="off">
+
           <!-- 企业特有字段 -->
           <div id="enterpriseFields">
             <div class="form-group">
@@ -394,7 +397,7 @@
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>© 2026 中华人力资源学会 (ZHHR.NET) 版权所有 | 京ICP备2026088888号-1 | 京公网安备11010802008888号</p>
+      <p>© 2026 中华人力资源学会 (ZHHR.NET) 版权所有 | 京ICP备案申请中</p>
     </div>
   </footer>
 
